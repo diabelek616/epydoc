@@ -1,0 +1,6 @@
+[Event/requestreboot]
+Action=
+Execute=
+KTTS=
+Logfile=
+Sound=

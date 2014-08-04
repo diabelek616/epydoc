@@ -1,0 +1,11 @@
+[StoredApplets][2]
+geometry=0,0,244,348
+immutability=1
+plugin=calculator
+zvalue=0
+
+[StoredApplets][3]
+geometry=0,0,200,100
+immutability=1
+plugin=trash
+zvalue=0

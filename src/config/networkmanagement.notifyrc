@@ -1,0 +1,12 @@
+[Event/AcStateChanged]
+Action=
+Execute=
+KTTS=
+Logfile=
+Sound=
+
+[Event/DeviceFailed]
+Execute=
+KTTS=
+Logfile=
+Sound=
