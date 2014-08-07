@@ -100,7 +100,7 @@ Description::
 __docformat__ = 'epytext en'
 
 # Code organization..
-#   1. parse()
+#   1. epytext_parse()
 #   2. tokenize()
 #   3. colorize()
 #   4. helpers
@@ -225,7 +225,7 @@ _LINK_COLORIZING_TAGS = ['link', 'uri']
 ## Structuring (Top Level)
 ##################################################
 
-def parse(str, errors = None):
+def epytext_parse(str, errors = None):
     """
     Return a DOM tree encoding the contents of an epytext string.  Any
     errors generated during parsing will be stored in C{errors}.
@@ -1240,13 +1240,13 @@ def _colorize_link(doc, link, token, end, errors):
 def to_epytext(tree, indent=0, seclevel=0):
     """
     Convert a DOM document encoding epytext back to an epytext string.
-    This is the inverse operation from L{parse}.  I.e., assuming there
+    This is the inverse operation from L{epytext_parse}.  I.e., assuming there
     are no errors, the following is true:
-        - C{parse(to_epytext(tree)) == tree}
+        - C{epytext_parse(to_epytext(tree)) == tree}
 
     The inverse is true, except that whitespace, line wrapping, and
     character escaping may be done differently.
-        - C{to_epytext(parse(str)) == str} (approximately)
+        - C{to_epytext(epytext_parse(str)) == str} (approximately)
 
     @param tree: A DOM document encoding of an epytext string.
     @type tree: C{Element}
@@ -1527,7 +1527,7 @@ def pparse(str, show_warnings=1, show_errors=1, stream=sys.stderr):
     errors = []
     confused = 0
     try:
-        val = parse(str, errors)
+        val = epytext_parse(str, errors)
         warnings = [e for e in errors if not e.is_fatal()]
         errors = [e for e in errors if e.is_fatal()]
     except:
@@ -1659,7 +1659,7 @@ def parse_docstring(docstring, errors, **options):
         Currently, no extra options are defined.
     @rtype: L{ParsedDocstring}
     """
-    return ParsedEpytextDocstring(parse(docstring, errors), **options)
+    return ParsedEpytextDocstring(epytext_parse(docstring, errors), **options)
     
 class ParsedEpytextDocstring(ParsedDocstring):
     SYMBOL_TO_HTML = {

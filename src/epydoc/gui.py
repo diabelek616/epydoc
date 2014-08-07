@@ -814,6 +814,7 @@ class EpydocGUI:
         from epydoc.util import is_package_dir, is_pyname, is_module_file
         from epydoc.docintrospecter import get_value_from_name
         from epydoc.docintrospecter import get_value_from_filename
+        from epydoc.docintrospecter import get_value_from_scriptname
 
         if (os.path.isfile(name) or is_package_dir(name) or is_pyname(name)):
             # Check that it's a good module, if requested.
