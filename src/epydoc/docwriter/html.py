@@ -3263,7 +3263,7 @@ class HTMLWriter:
     def pysrc_url(self, api_doc):
         if isinstance(api_doc, VariableDoc):
             if api_doc.value not in (None, UNKNOWN):
-                return pysrc_url(api_doc.value)
+                return self.pysrc_url(api_doc.value)
             else:
                 return None
         elif isinstance(api_doc, ModuleDoc):
